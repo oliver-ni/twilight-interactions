@@ -201,32 +201,32 @@ pub fn parse_name(val: &AttrValue) -> Result<String> {
     //
     // https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-naming
 
-    match val.chars().count() {
-        1..=32 => (),
-        _ => return Err(Error::new(span, "Name must be between 1 and 32 characters")),
-    }
+//     match val.chars().count() {
+//         1..=32 => (),
+//         _ => return Err(Error::new(span, "Name must be between 1 and 32 characters")),
+//     }
 
-    for char in val.chars() {
-        if !char.is_alphanumeric() && char != '-' && char != '_' {
-            return Err(Error::new(
-                span,
-                format!(
-                    "Name must only contain word characters, found invalid character `{}`",
-                    char
-                ),
-            ));
-        }
+//     for char in val.chars() {
+//         if !char.is_alphanumeric() && char != '-' && char != '_' {
+//             return Err(Error::new(
+//                 span,
+//                 format!(
+//                     "Name must only contain word characters, found invalid character `{}`",
+//                     char
+//                 ),
+//             ));
+//         }
 
-        if char.to_lowercase().to_string() != char.to_string() {
-            return Err(Error::new(
-                span,
-                format!(
-                    "Name must be in lowercase, found invalid character `{}`",
-                    char
-                ),
-            ));
-        }
-    }
+//         if char.to_lowercase().to_string() != char.to_string() {
+//             return Err(Error::new(
+//                 span,
+//                 format!(
+//                     "Name must be in lowercase, found invalid character `{}`",
+//                     char
+//                 ),
+//             ));
+//         }
+//     }
 
     Ok(val)
 }
